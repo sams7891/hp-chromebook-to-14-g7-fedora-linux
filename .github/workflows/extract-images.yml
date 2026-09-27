@@ -1,0 +1,43 @@
+name: Extract guide images
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/extract-images.yml'
+      - 'hp-chromebook-14-g7-fedora-linux.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Extract selected images from prepared repository ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/chromebook-guide
+          mkdir -p /tmp/chromebook-guide
+          unzip -q hp-chromebook-14-g7-fedora-linux.zip -d /tmp/chromebook-guide
+          mkdir -p images
+          cp /tmp/chromebook-guide/hp-chromebook-14-g7-fedora-linux/images/*.jpg images/
+
+      - name: Commit images
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/
+          if git diff --cached --quiet; then
+            echo "Images are already present."
+            exit 0
+          fi
+          git commit -m "Add guide images"
+          git push

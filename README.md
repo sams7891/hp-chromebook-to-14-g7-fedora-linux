@@ -526,26 +526,6 @@ Note that MrChromebox may block stock restoration after a device reaches ChromeO
 
 ---
 
-## Photo selection
-
-The repository intentionally uses only photos that add unique instructional value:
-
-| File | Why it is included |
-|---|---|
-| `01-internals-overview.jpg` | Shows the overall motherboard/battery layout |
-| `02-hwwp-jumper-pads.jpg` | Best close-up of the DRAWMAN HWWP area |
-| `03-hwwp-jumper-bridged.jpg` | Shows the temporary jumper in context |
-| `04-mrchromebox-firmware-menu.jpg` | Confirms DRAWMAN detection, Jasper Lake and WP-disabled state |
-| `05-full-rom-confirmation.jpg` | Shows the serious Full ROM confirmation stage |
-| `06-rufus-fedora-usb.jpg` | Shows the Fedora Xfce x86_64 ISO selected in Rufus |
-| `07-fedora-install-entire-disk.jpg` | Shows the destructive full-disk install choice |
-| `08-fedora-xfce-live.jpg` | Confirms successful Fedora live boot |
-| `09-fedora-postinstall-update.jpg` | Shows the first post-install update step |
-
-I left out the extra connector close-ups, duplicate installer-progress shots, and the low-angle open-chassis photo because they either repeat information or could cause readers to mistake an unrelated connector for the write-protect hardware.
-
----
-
 ## Sources / further reading
 
 - MrChromebox Supported Devices  
